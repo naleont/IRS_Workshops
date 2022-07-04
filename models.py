@@ -20,10 +20,8 @@ class Grades(db.Model):
     __table_args__ = (PrimaryKeyConstraint('wsh_id'),)
 
     wsh_id = db.Column('wsh_id', db.Integer, ForeignKey('workshops.wsh_id'))
-    ip = db.Column('ip', db.Integer)
     grade = db. Column('grade', db.Integer)
 
-    def __init__(self, wsh_id, ip, grade):
+    def __init__(self, wsh_id, grade):
         self.wsh_id = wsh_id
-        self.ip = ip
         self.grade = grade

@@ -19,13 +19,8 @@ def main(wsh_id, saved):
 
 @app.route('/evaluate/<workshop>/<grade>')
 def evaluate(workshop, grade):
-    ip = request.remote_addr
-    if ip not in [g.ip for g in Grades.query.filter(Grades.wsh_id == workshop).all()]:
-        grade = Grades(workshop, ip, grade)
-        db.session.add(grade)
-    else:
-        db.session.query(Grades).filter(Grades.wsh_id == workshop
-                                        ).filter(Grades.ip == ip).update({Grades.grade: grade})
+    grade = Grades(workshop, grade)
+    db.session.add(grade)
     db.session.commit()
     return redirect(url_for('.main', wsh_id=workshop, saved=True))
 

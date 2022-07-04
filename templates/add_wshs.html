@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>Add workshops</h1>
+{% endblock %}
+
+{% block content %}
+
+{% if success == 'True' %}
+<p class="green">
+    {{ no }} workshops saved
+</p>
+{% elif success == False %}
+<p class="red">
+    Something went wrong: couldn't save
+</p>
+{% endif %}
+
+<form action="/accept_wshs" method = 'POST'>
+    <fieldset>
+        <legend><h2>Workshop names separated by new line</h2></legend>
+        <textarea cols="120" rows="10" name="data"></textarea><br><br>
+        <input class="button" type="submit" value="Сохранить">
+    </fieldset>
+</form>
+
+{% endblock %}

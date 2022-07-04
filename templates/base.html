@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IRS | Evaluate workshops</title>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <style>
+        div {broder: 2px solid black}
+        body {
+            background: linear-gradient(to bottom right, #A4C6B6, #9FAFBE) no-repeat fixed;
+            font-family: Arial;
+        }
+        .green {
+            color:darkgreen;
+        }
+        .red {
+            color:red;
+        }
+        table {
+            cellpadding: 5px;
+            frame: void;
+            border-color: black;
+            border-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+<div align="center" vertical-align="middle">
+<img src="/static/images/logo.png" width="15%" float="none" align="center">
+    {% block header %} {% endblock %}
+
+</div>
+
+<div align="center">
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{{ name|upper }}</h1>
+{% endblock %}
+
+{% block content %}
+    <a href="/evaluate/{{ workshop }}/1">
+        <img src="static/images/1.png" width="15%" alt="didn't like">
+    </a>
+
+{% if saved == 'True' %}
+<p class="green">Your feedback has been saved.</p>
+{% endif %}
+{% endblock %}

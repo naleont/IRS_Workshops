@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>Results</h1>
+{% endblock %}
+
+{% block content %}
+<table frame="void" border="1px" bordercolor="#4962A4" cellpadding="5px">
+    <tr>
+        <td align="center"><b>
+            Name
+        </b></td>
+        <td align="center"><b>
+            Grades
+        </b></td>
+        <td align="center"><b>
+            1's
+        </b></td>
+        <td align="center"><b>
+            2's
+        </b></td>
+        <td align="center"><b>
+            3's
+        </b></td>
+        <td align="center"><b>
+            4's
+        </b></td>
+        <td align="center"><b>
+            5's
+        </b></td>
+        <td align="center"><b>
+            Avg
+        </b></td>
+    </tr>
+    {% for r in res %}
+        <tr>
+            <td><b>
+                {{ r['name'] }}
+            </b></td>
+            <td align="center"><b>
+                {{ r['no'] }}
+            </b></td>
+            <td align="center">
+                {{ r[1] }}
+            </td>
+            <td align="center">
+                {{ r[2] }}
+            </td>
+            <td align="center">
+                {{ r[3] }}
+            </td>
+            <td align="center">
+                {{ r[4] }}
+            </td>
+            <td align="center">
+                {{ r[5] }}
+            </td>
+            <td align="center"><b>
+                {{ r['avg'] }}
+            </b></td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -19,7 +19,7 @@ class Grades(db.Model):
     __tablename__ = 'grades'
     __table_args__ = (PrimaryKeyConstraint('wsh_id'),)
 
-    wsh_id = db.Column('wsh_id', db.Integer, ForeignKey('workshops.wsh_id'))
+    wsh_id = db.Column('wsh_id', db.Integer, ForeignKey('workshops.wsh_id'), unique=False)
     grade = db. Column('grade', db.Integer)
 
     def __init__(self, wsh_id, grade):

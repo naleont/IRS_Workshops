@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request, redirect, url_for, jsonify
+from flask import render_template, request, redirect, url_for
 from models import *
 
 app = Flask(__name__, instance_relative_config=False)

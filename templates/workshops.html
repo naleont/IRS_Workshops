@@ -7,22 +7,19 @@
 {% block content %}
 <p>What's your reaction to this workshop?</p>
     <a href="/evaluate/{{ workshop }}/1">
-        <img src="/static/images/1.JPG" width="17%" alt="Didn't like it at all.">
+        <img src="/static/images/1.jpg" width="17%" alt="Didn't like it at all.">
     </a>
     <a href="/evaluate/{{ workshop }}/2">
-        <img src="/static/images/2.JPG" width="17%" alt="Didn't like it very much.">
+        <img src="/static/images/2.jpg" width="17%" alt="Didn't like it very much.">
     </a>
     <a href="/evaluate/{{ workshop }}/3">
-        <img src="/static/images/3.JPG" width="17%" alt="It was not bad.">
+        <img src="/static/images/3.jpg" width="17%" alt="It was not bad.">
     </a>
     <a href="/evaluate/{{ workshop }}/4">
-        <img src="/static/images/4.JPG" width="17%" alt="Quite liked it.">
+        <img src="/static/images/4.jpg" width="17%" alt="Quite liked it.">
     </a>
     <a href="/evaluate/{{ workshop }}/5">
-        <img src="/static/images/5.JPG" width="17%" alt="Absolutely loved it.">
+        <img src="/static/images/5.jpg" width="17%" alt="Absolutely loved it.">
     </a>
 
-{% if saved == 'True' %}
-<p class="green">Your feedback has been saved.</p>
-{% endif %}
 {% endblock %}

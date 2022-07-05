@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<h1>Other workshops</h1>
+
+{% endblock %}
+
+{% block content %}
+{% if saved == 'True' %}
+<p class="green">Your feedback has been saved.</p>
+{% endif %}
+<li>
+    {% for w in wshs %}
+    <ol>
+        <a href="/workshop/{{ w['id'] }}">{{ w['name'] }} ({{ w['date'] }})</a>
+    </ol>
+    {% endfor %}
+</li>
+
+{% endblock %}

@@ -17,12 +17,27 @@ def main(wsh_id, saved):
     return render_template('workshops.html', workshop=wsh_id, name=name, saved=saved)
 
 
+@app.route('/other_workshops', defaults={'saved': None})
+@app.route('/other_workshops/<saved>')
+def other_workshops(saved):
+    wshs = []
+    for w in Workshops.query.all():
+        wsh = {'id': w.wsh_id, 'name': w.wsh_name, 'date': w.date}
+        wshs.append(wsh)
+    return render_template('other_workshops.html', wshs=wshs, saved=saved)
+
+
 @app.route('/evaluate/<workshop>/<grade>')
 def evaluate(workshop, grade):
-    grade = Grades(workshop, grade)
+    ids = [w.evaluation_id for w in Grades.query.all()]
+    if not ids:
+        i = 1
+    else:
+        i = max(ids) + 1
+    grade = Grades(i, Workshops.query.filter(Workshops.wsh_id == workshop).first().wsh_id, int(grade))
     db.session.add(grade)
     db.session.commit()
-    return redirect(url_for('.main', wsh_id=workshop, saved=True))
+    return redirect(url_for('.other_workshops', saved=True))
 
 
 @app.route('/add_wshs', defaults={'success': None, 'no': None})
@@ -39,7 +54,7 @@ def accept_wshs():
     try:
         for wsh in wshs:
             if wsh not in [w.wsh_name for w in Workshops.query.all()] and wsh != '':
-                w = Workshops(wsh.strip('\r'))
+                w = Workshops(wsh.strip('\r'), '')
                 db.session.add(w)
                 db.session.commit()
         success = True
